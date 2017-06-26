@@ -7,7 +7,7 @@ VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     # RackHD SERVER
-    config.vm.define "dev_t1" do |target|
+    config.vm.define "dev_ansible" do |target|
         target.vm.box = "rackhd/rackhd-dev"
         target.vm.provider "virtualbox" do |v|
             v.memory = 4096
@@ -94,7 +94,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.define "quanta_d51" do |target|
         target.vm.box = "InfraSIM/quanta_d51"
         target.vm.provider "virtualbox" do |v|
-            v.gui = true
             v.memory = 4096
             v.cpus = 4
             v.customize ["modifyvm", :id, "--nicpromisc2", "allow-all", "--ioapic", "on"]
